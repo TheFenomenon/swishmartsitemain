@@ -1,44 +1,13 @@
 <!DOCTYPE html>
-<!--
-  ============================================================
-  SwishMart Interactive — Premium Hero Section
-  Built with: HTML5, CSS3, Vanilla JavaScript
-  Author: Senior Full-Stack / UI-UX Build
-  ============================================================
-  BEGINNER NOTE:
-  This is a single HTML file. Everything — structure (HTML),
-  styling (CSS), and behavior (JS) — lives in one place.
-  That makes it easy to test, edit, and understand.
-  ============================================================
--->
 <html lang="en">
 
 <head>
-  <!--
-    META TAGS — These are invisible to users but important.
-    They tell browsers how to display your page correctly.
-  -->
   <meta charset="UTF-8" />
-  <!-- charset="UTF-8" means the page supports all characters,
-       including Yoruba, Igbo, Hausa, and emoji. -->
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- This makes the page look good on phones and tablets.
-       Without it, mobile browsers zoom out and everything looks tiny. -->
-
   <meta name="description"
-    content="SwishMart Interactive — Web Development, Digital Marketing, Social Media & YouTube Monetization for Nigerian businesses and creators." />
-  <!-- This text appears in Google search results below your page title. -->
+    content="SwishMart Interactive — Stop throwing money at websites that don't convert. We build digital systems that bring in real customers and real naira for Nigerian businesses." />
+  <title>SwishMart Interactive | Your Website Should Be Making You Money</title>
 
-  <title>SwishMart Interactive | Grow Your Business Online</title>
-  <!-- The text shown on the browser tab. -->
-
-  <!--
-    GOOGLE FONTS — We're loading two fonts from Google's free library.
-    - "Inter" is a clean modern font (used for body text)
-    - "Plus Jakarta Sans" has a premium feel (used for headings)
-    These load from the internet, so you need Wi-Fi to see them.
-  -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -46,145 +15,65 @@
     rel="stylesheet" />
 
   <style>
-    /* ============================================================
-       CSS RESET & ROOT VARIABLES
-       ============================================================
-       WHY: Every browser has its own default styles.
-       A CSS reset removes those defaults so our design looks
-       the same in Chrome, Firefox, Safari, etc.
-    */
-
     *,
     *::before,
     *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      /* box-sizing: border-box means padding and border are
-         included in an element's total width/height.
-         Without this, a 300px box with 20px padding becomes 340px wide — confusing! */
     }
 
     :root {
-      /*
-        CSS CUSTOM PROPERTIES (VARIABLES)
-        Think of these as named shortcuts for values you reuse a lot.
-        Change the value here once, it updates everywhere.
-
-        HOW TO CUSTOMIZE:
-        Want a different brand color? Just change --color-accent below.
-      */
-
-      /* Brand Colors */
       --color-accent: #6C63FF;
-      /* Purple — the main brand color */
       --color-accent-dark: #5A52D5;
-      /* Darker purple for hover states */
       --color-accent-light: #EEF0FF;
-      /* Very light purple for backgrounds */
       --color-accent-glow: rgba(108, 99, 255, 0.25);
-      /* Semi-transparent purple for glow effects */
-
-      /* Neutral Colors */
       --color-dark: #0D0D1A;
-      /* Near-black — used for the main background */
       --color-dark-2: #13131F;
-      /* Slightly lighter dark — for card backgrounds */
       --color-dark-3: #1C1C2E;
-      /* Used for nav background */
       --color-border: rgba(255, 255, 255, 0.08);
-      /* Barely visible white border */
       --color-text-primary: #FFFFFF;
-      /* White — main text color */
       --color-text-secondary: rgba(255, 255, 255, 0.65);
-      /* Muted white — for less important text */
       --color-text-muted: rgba(255, 255, 255, 0.38);
-      /* Very muted — for placeholder text */
-
-      /* Typography */
       --font-heading: 'Plus Jakarta Sans', sans-serif;
       --font-body: 'Inter', sans-serif;
-
-      /* Layout */
       --nav-height: 72px;
-      /* Fixed height of the navigation bar */
       --max-width: 1200px;
-      /* Maximum width of content — prevents it from being too wide on big screens */
       --section-padding: 0 24px;
-      /* Side padding so content doesn't touch the screen edges */
-
-      /* Transitions */
       --transition-fast: 0.15s ease;
       --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      /* cubic-bezier gives a more natural, Apple-like feel than plain "ease" */
     }
 
-    /* ============================================================
-       BASE STYLES
-       These apply to the whole page
-    */
-    html {
-      scroll-behavior: smooth;
-      /* When a user clicks a link like <a href="#services">,
-         the page scrolls smoothly instead of jumping instantly. */
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: var(--font-body);
       background-color: var(--color-dark);
       color: var(--color-text-primary);
       line-height: 1.6;
-      /* Line height is the space between lines of text.
-         1.6 means 160% of the font size — comfortable to read. */
       overflow-x: hidden;
-      /* Prevents horizontal scrolling if any element accidentally overflows */
       -webkit-font-smoothing: antialiased;
-      /* Makes text look sharper on Mac/iOS screens */
     }
 
-    /* ============================================================
-       UTILITY CLASSES
-       Small reusable CSS classes — like building blocks.
-       Instead of repeating styles, just add the class to any element.
-    */
     .container {
       max-width: var(--max-width);
       margin: 0 auto;
-      /* margin: 0 auto centers the container horizontally */
       padding: var(--section-padding);
     }
 
-    /* ============================================================
-       ★ NAVIGATION BAR
-       ============================================================
-       PURPOSE: Helps users navigate the site.
-       Also builds credibility — a clean nav = professional brand.
-
-       LAYOUT TECHNIQUE: Flexbox
-       flex makes children line up in a row (by default).
-       justify-content: space-between pushes items to opposite ends.
-       align-items: center vertically centers them.
-    */
+    /* ── NAVBAR ── */
     .navbar {
       position: fixed;
-      /* fixed = stays at the top even when you scroll */
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       height: var(--nav-height);
       z-index: 1000;
-      /* z-index controls stacking order. 1000 means it stays on top of other content. */
       transition: background var(--transition-smooth), backdrop-filter var(--transition-smooth);
     }
 
-    /* This class is added by JavaScript when user scrolls down */
     .navbar.scrolled {
       background: rgba(13, 13, 26, 0.85);
       backdrop-filter: blur(20px);
-      /* backdrop-filter: blur creates the "frosted glass" effect
-         popular in modern Apple-style designs */
       -webkit-backdrop-filter: blur(20px);
-      /* Same thing but for Safari (webkit prefix needed) */
       border-bottom: 1px solid var(--color-border);
     }
 
@@ -195,89 +84,61 @@
       justify-content: space-between;
     }
 
-    /* ── Logo ── */
     .nav-logo {
       display: flex;
       align-items: center;
       gap: 10px;
       text-decoration: none;
-      /* Removes the default underline from links */
     }
 
     .nav-logo-icon {
-      width: 36px;
-      height: 36px;
+      width: 36px; height: 36px;
       background: var(--color-accent);
       border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       font-family: var(--font-heading);
-      font-weight: 800;
-      font-size: 16px;
-      color: white;
-      flex-shrink: 0;
-      /* flex-shrink: 0 prevents the icon from getting smaller in tight spaces */
+      font-weight: 800; font-size: 16px;
+      color: white; flex-shrink: 0;
     }
 
     .nav-logo-text {
       font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 17px;
+      font-weight: 700; font-size: 17px;
       color: var(--color-text-primary);
       letter-spacing: -0.3px;
     }
 
-    .nav-logo-text span {
-      color: var(--color-accent);
-    }
+    .nav-logo-text span { color: var(--color-accent); }
 
-    /* ── Navigation Links ── */
     .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      list-style: none;
-      /* Removes the default bullet points from <ul> */
+      display: flex; align-items: center;
+      gap: 8px; list-style: none;
     }
 
     .nav-links a {
       text-decoration: none;
       color: var(--color-text-secondary);
-      font-size: 14px;
-      font-weight: 500;
-      padding: 8px 14px;
-      border-radius: 8px;
+      font-size: 14px; font-weight: 500;
+      padding: 8px 14px; border-radius: 8px;
       transition: color var(--transition-fast), background var(--transition-fast);
     }
 
-    /* :hover means "apply these styles when the mouse is over the element" */
     .nav-links a:hover {
       color: var(--color-text-primary);
       background: rgba(255, 255, 255, 0.06);
     }
 
-    /* ── Nav CTA Button ── */
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-family: var(--font-body);
-      font-weight: 600;
-      font-size: 14px;
-      border-radius: 10px;
-      padding: 10px 20px;
-      cursor: pointer;
-      text-decoration: none;
-      border: none;
-      outline: none;
+      display: inline-flex; align-items: center;
+      justify-content: center; gap: 8px;
+      font-family: var(--font-body); font-weight: 600;
+      font-size: 14px; border-radius: 10px;
+      padding: 10px 20px; cursor: pointer;
+      text-decoration: none; border: none; outline: none;
       transition: all var(--transition-smooth);
       white-space: nowrap;
-      /* Prevents button text from wrapping to a second line */
     }
 
-    /* Primary button — the main action button (purple filled) */
     .btn-primary {
       background: var(--color-accent);
       color: white;
@@ -287,17 +148,11 @@
     .btn-primary:hover {
       background: var(--color-accent-dark);
       transform: translateY(-1px);
-      /* translateY(-1px) moves the button up 1 pixel — gives a "lift" effect */
       box-shadow: 0 8px 25px var(--color-accent-glow);
     }
 
-    .btn-primary:active {
-      transform: translateY(0);
-      /* When clicked (active), the button returns to normal position */
-      box-shadow: none;
-    }
+    .btn-primary:active { transform: translateY(0); box-shadow: none; }
 
-    /* Outlined button — secondary action (transparent with border) */
     .btn-outline {
       background: transparent;
       color: var(--color-text-primary);
@@ -310,834 +165,899 @@
       transform: translateY(-1px);
     }
 
-    .btn-outline:active {
-      transform: translateY(0);
-    }
+    .btn-outline:active { transform: translateY(0); }
 
-    /* Large button variant — used in the hero section */
-    .btn-lg {
-      font-size: 16px;
-      padding: 14px 28px;
-      border-radius: 12px;
-    }
+    .btn-lg { font-size: 16px; padding: 14px 28px; border-radius: 12px; }
 
-    /* ── Mobile Hamburger Menu ── */
     .nav-toggle {
       display: none;
-      /* Hidden on desktop. Shown only on mobile via media query below. */
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 8px;
-      background: none;
-      border: none;
+      flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 8px;
+      background: none; border: none;
     }
 
     .nav-toggle span {
-      width: 22px;
-      height: 2px;
+      width: 22px; height: 2px;
       background: var(--color-text-primary);
       border-radius: 2px;
       transition: all var(--transition-smooth);
       display: block;
     }
 
-    /* Animate the hamburger into an X when menu is open */
-    .nav-toggle.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
+    .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-    .nav-toggle.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .nav-toggle.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
-
-    /* ============================================================
-       ★ HERO SECTION
-       ============================================================
-       PURPOSE: The first thing visitors see.
-       You have ~3 seconds to communicate your value.
-       This section must answer: "What do you do? For who? Why should I care?"
-
-       LAYOUT TECHNIQUE: CSS Grid
-       grid splits the section into two columns:
-       - Left: text content (headline, subtext, CTAs)
-       - Right: visual element (animated graphic)
-    */
+    /* ── HERO ── */
     .hero {
       min-height: 100vh;
-      /* min-height: 100vh means "at least as tall as the screen viewport" */
       padding-top: var(--nav-height);
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
     }
 
-    /* ── Background Effects ── */
-    /* These are decorative blobs that sit behind the content */
     .hero-bg {
-      position: absolute;
-      inset: 0;
-      /* inset: 0 is shorthand for top:0, right:0, bottom:0, left:0 */
-      z-index: 0;
-      /* z-index: 0 keeps it behind the content (which has z-index: 1) */
-      pointer-events: none;
-      /* Makes the background unclickable — clicks pass through to content */
+      position: absolute; inset: 0;
+      z-index: 0; pointer-events: none;
     }
 
     .hero-blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      /* blur creates the soft glow effect */
-      opacity: 0.15;
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); opacity: 0.15;
     }
 
     .hero-blob-1 {
-      width: 600px;
-      height: 600px;
+      width: 600px; height: 600px;
       background: var(--color-accent);
-      top: -200px;
-      right: -100px;
+      top: -200px; right: -100px;
       animation: float 8s ease-in-out infinite;
-      /* animation applies our @keyframes "float" animation */
     }
 
     .hero-blob-2 {
-      width: 400px;
-      height: 400px;
+      width: 400px; height: 400px;
       background: #FF6B9D;
-      /* Pink blob for contrast */
-      bottom: -100px;
-      left: -100px;
+      bottom: -100px; left: -100px;
       animation: float 10s ease-in-out infinite reverse;
-      /* reverse makes it float in the opposite direction */
     }
 
     .hero-blob-3 {
-      width: 300px;
-      height: 300px;
+      width: 300px; height: 300px;
       background: #00D4FF;
-      /* Cyan blob */
-      top: 50%;
-      left: 50%;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       animation: pulse 6s ease-in-out infinite;
     }
 
-    /* ── Hero Content Grid ── */
     .hero .container {
-      position: relative;
-      z-index: 1;
-      /* z-index: 1 keeps content above the background blobs */
+      position: relative; z-index: 1;
       width: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      /* Two equal columns */
-      gap: 60px;
-      align-items: center;
-      padding-top: 60px;
-      padding-bottom: 80px;
+      gap: 60px; align-items: center;
+      padding-top: 60px; padding-bottom: 80px;
     }
 
-    /* ── Hero Text Content (Left Column) ── */
     .hero-content {
-      display: flex;
-      flex-direction: column;
-      /* flex-direction: column stacks children vertically */
-      gap: 28px;
+      display: flex; flex-direction: column; gap: 28px;
     }
 
-    /* Badge / Label above the headline */
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      display: inline-flex; align-items: center; gap: 8px;
       background: var(--color-accent-light);
       color: var(--color-accent);
-      font-size: 13px;
-      font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 100px;
-      /* 100px makes it a pill shape */
+      font-size: 13px; font-weight: 600;
+      padding: 6px 14px; border-radius: 100px;
       width: fit-content;
-      /* width: fit-content makes it only as wide as its content */
       border: 1px solid rgba(108, 99, 255, 0.2);
       animation: fadeInDown 0.6s ease forwards;
-      /* fadeInDown is defined in @keyframes below */
     }
 
     .hero-badge-dot {
-      width: 6px;
-      height: 6px;
+      width: 6px; height: 6px;
       background: var(--color-accent);
       border-radius: 50%;
       animation: pulseDot 2s ease-in-out infinite;
     }
 
-    /* ── Main Headline ── */
     .hero-headline {
       font-family: var(--font-heading);
       font-size: clamp(38px, 5vw, 64px);
-      /*
-        clamp(min, preferred, max) is a modern CSS function.
-        The font will be:
-        - At least 38px (on small screens)
-        - Ideally 5% of the viewport width
-        - No more than 64px (on large screens)
-        This makes it perfectly responsive without media queries!
-      */
-      font-weight: 800;
-      line-height: 1.1;
+      font-weight: 800; line-height: 1.1;
       letter-spacing: -1.5px;
       color: var(--color-text-primary);
       animation: fadeInUp 0.7s ease 0.1s forwards;
       opacity: 0;
-      /* Start invisible, then animate in */
     }
 
     .hero-headline .highlight {
-      /* The colored word in the headline */
       background: linear-gradient(135deg, #6C63FF 0%, #FF6B9D 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      /*
-        This creates a gradient TEXT effect.
-        It clips the gradient to the text shape.
-        Only the text shows the gradient, not a rectangle behind it.
-      */
     }
 
-    .hero-headline .line-break {
-      display: block;
-      /* Forces a new line — like pressing Enter in the headline */
-    }
+    .hero-headline .line-break { display: block; }
 
-    /* ── Subheadline ── */
     .hero-subheadline {
       font-size: clamp(16px, 2vw, 19px);
       color: var(--color-text-secondary);
-      line-height: 1.7;
-      max-width: 480px;
+      line-height: 1.7; max-width: 480px;
       animation: fadeInUp 0.7s ease 0.2s forwards;
       opacity: 0;
     }
 
-    /* ── CTA Buttons Row ── */
     .hero-ctas {
-      display: flex;
-      flex-wrap: wrap;
-      /* flex-wrap allows buttons to stack on mobile if they don't fit in a row */
-      gap: 12px;
+      display: flex; flex-wrap: wrap; gap: 12px;
       animation: fadeInUp 0.7s ease 0.3s forwards;
       opacity: 0;
     }
 
-    /* WhatsApp button — the primary CTA */
     .btn-whatsapp {
       background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-      color: white;
-      padding: 14px 28px;
-      font-size: 16px;
-      border-radius: 12px;
-      border: none;
-      gap: 10px;
-      position: relative;
-      overflow: hidden;
+      color: white; padding: 14px 28px;
+      font-size: 16px; border-radius: 12px;
+      border: none; gap: 10px;
+      position: relative; overflow: hidden;
     }
 
-    /* The shimmer effect on the WhatsApp button */
     .btn-whatsapp::before {
       content: '';
-      /* ::before creates a pseudo-element (a fake element) */
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+      position: absolute; top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
       transition: left 0.4s ease;
     }
 
-    .btn-whatsapp:hover::before {
-      left: 100%;
-      /* The shimmer slides from left to right on hover */
-    }
+    .btn-whatsapp:hover::before { left: 100%; }
 
     .btn-whatsapp:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 30px rgba(37, 211, 102, 0.35);
     }
 
-    /* ── Trust Indicator ── */
     .hero-trust {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      display: flex; align-items: center; gap: 12px;
       animation: fadeInUp 0.7s ease 0.4s forwards;
       opacity: 0;
     }
 
-    .trust-avatars {
-      display: flex;
-    }
+    .trust-avatars { display: flex; }
 
-    /* Each avatar circle overlaps the previous one */
     .trust-avatar {
-      width: 34px;
-      height: 34px;
+      width: 34px; height: 34px;
       border-radius: 50%;
       border: 2px solid var(--color-dark);
-      /* The dark border creates the separation between overlapping circles */
       margin-left: -10px;
-      font-size: 12px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-size: 12px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
       color: white;
     }
 
-    .trust-avatar:first-child {
-      margin-left: 0;
-      /* The first avatar has no left margin */
-    }
+    .trust-avatar:first-child { margin-left: 0; }
+    .trust-avatar:nth-child(1) { background: #6C63FF; }
+    .trust-avatar:nth-child(2) { background: #FF6B9D; }
+    .trust-avatar:nth-child(3) { background: #00D4FF; }
+    .trust-avatar:nth-child(4) { background: #FFB347; }
 
-    /* Different colors for each avatar */
-    .trust-avatar:nth-child(1) {
-      background: #6C63FF;
-    }
+    .trust-text { font-size: 13px; color: var(--color-text-secondary); }
+    .trust-text strong { color: var(--color-text-primary); font-weight: 600; }
 
-    .trust-avatar:nth-child(2) {
-      background: #FF6B9D;
-    }
-
-    .trust-avatar:nth-child(3) {
-      background: #00D4FF;
-    }
-
-    .trust-avatar:nth-child(4) {
-      background: #FFB347;
-    }
-
-    .trust-text {
-      font-size: 13px;
-      color: var(--color-text-secondary);
-    }
-
-    .trust-text strong {
-      color: var(--color-text-primary);
-      font-weight: 600;
-    }
-
-    /* ── Hero Visual (Right Column) ── */
     .hero-visual {
       position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display: flex; justify-content: center; align-items: center;
       animation: fadeInRight 0.8s ease 0.2s forwards;
       opacity: 0;
     }
 
-    /* The main card in the visual */
     .hero-card {
-      width: 100%;
-      max-width: 460px;
+      width: 100%; max-width: 460px;
       background: var(--color-dark-2);
       border: 1px solid var(--color-border);
-      border-radius: 24px;
-      padding: 32px;
-      position: relative;
-      overflow: hidden;
-      /* overflow: hidden clips anything inside to the card's rounded corners */
+      border-radius: 24px; padding: 32px;
+      position: relative; overflow: hidden;
     }
 
-    /* Subtle gradient in the card's top-right corner */
     .hero-card::before {
       content: '';
-      position: absolute;
-      top: -60px;
-      right: -60px;
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle, rgba(108, 99, 255, 0.15) 0%, transparent 70%);
+      position: absolute; top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(108,99,255,0.15) 0%, transparent 70%);
       pointer-events: none;
     }
 
     .hero-card-header {
-      display: flex;
-      align-items: center;
+      display: flex; align-items: center;
       justify-content: space-between;
       margin-bottom: 24px;
     }
 
     .hero-card-label {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 1px;
       color: var(--color-text-muted);
     }
 
     .hero-card-status {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      color: #25D366;
-      font-weight: 500;
+      display: flex; align-items: center; gap: 6px;
+      font-size: 12px; color: #25D366; font-weight: 500;
     }
 
     .status-dot {
-      width: 7px;
-      height: 7px;
-      background: #25D366;
-      border-radius: 50%;
+      width: 7px; height: 7px;
+      background: #25D366; border-radius: 50%;
       animation: pulseDot 2s ease-in-out infinite;
     }
 
-    /* ── Service Cards inside Hero Visual ── */
     .service-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+      display: flex; flex-direction: column; gap: 12px;
     }
 
     .service-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
+      display: flex; align-items: center; gap: 14px;
       padding: 14px 16px;
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255,255,255,0.03);
       border: 1px solid var(--color-border);
       border-radius: 12px;
       transition: all var(--transition-smooth);
       cursor: default;
-      /* We're not making these clickable in this version */
     }
 
     .service-item:hover {
-      background: rgba(108, 99, 255, 0.08);
-      border-color: rgba(108, 99, 255, 0.25);
+      background: rgba(108,99,255,0.08);
+      border-color: rgba(108,99,255,0.25);
       transform: translateX(4px);
-      /* Slides slightly right on hover — a nice micro-interaction */
     }
 
     .service-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      flex-shrink: 0;
+      width: 40px; height: 40px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
     }
 
-    .service-info {
-      flex: 1;
-      /* flex: 1 makes this div take all available remaining space */
-    }
+    .service-info { flex: 1; }
 
-    .service-name {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--color-text-primary);
-      margin-bottom: 2px;
-    }
-
-    .service-desc {
-      font-size: 12px;
-      color: var(--color-text-muted);
-    }
+    .service-name { font-size: 14px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 2px; }
+    .service-desc { font-size: 12px; color: var(--color-text-muted); }
 
     .service-arrow {
-      font-size: 14px;
-      color: var(--color-text-muted);
+      font-size: 14px; color: var(--color-text-muted);
       transition: transform var(--transition-fast), color var(--transition-fast);
     }
 
-    .service-item:hover .service-arrow {
-      transform: translateX(3px);
-      color: var(--color-accent);
-    }
+    .service-item:hover .service-arrow { transform: translateX(3px); color: var(--color-accent); }
 
-    /* ── Floating Metric Badges (decorative) ── */
     .metric-badge {
       position: absolute;
       background: var(--color-dark-3);
       border: 1px solid var(--color-border);
-      border-radius: 12px;
-      padding: 10px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
+      border-radius: 12px; padding: 10px 16px;
+      display: flex; flex-direction: column; gap: 2px;
       backdrop-filter: blur(10px);
     }
 
     .metric-badge-value {
       font-family: var(--font-heading);
-      font-size: 20px;
-      font-weight: 700;
+      font-size: 20px; font-weight: 700;
       color: var(--color-text-primary);
     }
 
-    .metric-badge-label {
-      font-size: 11px;
-      color: var(--color-text-muted);
-    }
+    .metric-badge-label { font-size: 11px; color: var(--color-text-muted); }
 
-    /* Position each badge */
-    .badge-clients {
-      top: -16px;
-      left: -24px;
-      animation: floatBadge 4s ease-in-out infinite;
-    }
+    .badge-clients { top: -16px; left: -24px; animation: floatBadge 4s ease-in-out infinite; }
+    .badge-growth { bottom: 32px; right: -24px; animation: floatBadge 5s ease-in-out infinite reverse; }
 
-    .badge-growth {
-      bottom: 32px;
-      right: -24px;
-      animation: floatBadge 5s ease-in-out infinite reverse;
-    }
-
-    /* ============================================================
-       KEYFRAME ANIMATIONS
-       @keyframes defines named animation sequences.
-       You then apply them with the `animation` property.
-    */
-
-    /* Floating up and down (for background blobs) */
     @keyframes float {
-      0%,
-      100% {
-        transform: translateY(0px) rotate(0deg);
-      }
-
-      50% {
-        transform: translateY(-30px) rotate(5deg);
-      }
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(5deg); }
     }
 
-    /* Subtle scale pulse (for background blobs) */
     @keyframes pulse {
-      0%,
-      100% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.1;
-      }
-
-      50% {
-        transform: translate(-50%, -50%) scale(1.2);
-        opacity: 0.2;
-      }
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.1; }
+      50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.2; }
     }
 
-    /* Dot pulse (for the live status indicator) */
     @keyframes pulseDot {
-      0%,
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-
-      50% {
-        transform: scale(1.4);
-        opacity: 0.6;
-      }
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.6; }
     }
 
-    /* Fade and slide up (for headline, subtext, CTAs) */
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-        /* Starts 20px below its normal position */
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Fade and slide down (for the badge) */
     @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-15px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(-15px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Fade and slide in from right (for the visual card) */
     @keyframes fadeInRight {
-      from {
-        opacity: 0;
-        transform: translateX(30px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
+      from { opacity: 0; transform: translateX(30px); }
+      to { opacity: 1; transform: translateX(0); }
     }
 
-    /* Gentle floating for the metric badges */
     @keyframes floatBadge {
-      0%,
-      100% {
-        transform: translateY(0px);
-      }
-
-      50% {
-        transform: translateY(-8px);
-      }
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
     }
 
-    /* ============================================================
-       MOBILE NAVIGATION (DRAWER)
-       When the hamburger is clicked, a menu slides in from the top.
-    */
     .mobile-menu {
       display: none;
-      /* Hidden by default */
-      position: fixed;
-      top: var(--nav-height);
-      left: 0;
-      right: 0;
+      position: fixed; top: var(--nav-height);
+      left: 0; right: 0;
       background: rgba(13, 13, 26, 0.97);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--color-border);
       z-index: 999;
       padding: 20px 24px 28px;
-      flex-direction: column;
-      gap: 6px;
+      flex-direction: column; gap: 6px;
       transform: translateY(-100%);
-      /* Start above the screen */
       transition: transform var(--transition-smooth), opacity var(--transition-smooth);
       opacity: 0;
     }
 
-    .mobile-menu.open {
-      transform: translateY(0);
-      /* Slides down into view */
-      opacity: 1;
-    }
+    .mobile-menu.open { transform: translateY(0); opacity: 1; }
 
     .mobile-menu a {
-      text-decoration: none;
-      color: var(--color-text-secondary);
-      font-size: 16px;
-      font-weight: 500;
-      padding: 12px 16px;
-      border-radius: 10px;
+      text-decoration: none; color: var(--color-text-secondary);
+      font-size: 16px; font-weight: 500;
+      padding: 12px 16px; border-radius: 10px;
       transition: all var(--transition-fast);
     }
 
-    .mobile-menu a:hover,
-    .mobile-menu a:active {
+    .mobile-menu a:hover, .mobile-menu a:active {
       color: var(--color-text-primary);
       background: rgba(255, 255, 255, 0.06);
     }
 
-    .mobile-menu-cta {
-      margin-top: 12px;
-    }
+    .mobile-menu-cta { margin-top: 12px; }
+    .mobile-menu .btn-whatsapp { width: 100%; justify-content: center; }
 
-    .mobile-menu .btn-whatsapp {
-      width: 100%;
-      /* Full width on mobile */
-      justify-content: center;
-    }
-
-    /* ============================================================
-       RESPONSIVE DESIGN — MEDIA QUERIES
-       Media queries apply different styles at different screen widths.
-       This is how we make the page look great on phones and tablets.
-    */
-
-    /* Tablet: screens 900px wide or less */
     @media (max-width: 900px) {
       .hero .container {
         grid-template-columns: 1fr;
-        /* Switch from 2 columns to 1 column */
-        gap: 48px;
-        text-align: center;
-        padding-top: 40px;
-        padding-bottom: 60px;
+        gap: 48px; text-align: center;
+        padding-top: 40px; padding-bottom: 60px;
       }
-
-      .hero-subheadline {
-        max-width: 100%;
-        /* Allow full width on single-column layout */
-        margin: 0 auto;
-      }
-
-      .hero-ctas {
-        justify-content: center;
-      }
-
-      .hero-trust {
-        justify-content: center;
-      }
-
-      .hero-content {
-        align-items: center;
-        /* Center all items horizontally */
-      }
-
-      .hero-visual {
-        order: -1;
-        /* Move the visual ABOVE the text on mobile */
-      }
-
-      .badge-clients {
-        left: 10px;
-      }
-
-      .badge-growth {
-        right: 10px;
-      }
+      .hero-subheadline { max-width: 100%; margin: 0 auto; }
+      .hero-ctas { justify-content: center; }
+      .hero-trust { justify-content: center; }
+      .hero-content { align-items: center; }
+      .hero-visual { order: -1; }
+      .badge-clients { left: 10px; }
+      .badge-growth { right: 10px; }
     }
 
-    /* Mobile: screens 640px wide or less */
     @media (max-width: 640px) {
-      .nav-links {
-        display: none;
-        /* Hide nav links on mobile — hamburger menu replaces them */
-      }
+      .nav-links { display: none; }
+      .nav-cta-desktop { display: none; }
+      .nav-toggle { display: flex; }
+      .mobile-menu { display: flex; }
+      .hero-headline { font-size: clamp(32px, 9vw, 42px); }
+      .hero-card { padding: 20px; }
+      .metric-badge { display: none; }
+    }
 
-      .nav-cta-desktop {
-        display: none;
-        /* Hide the desktop CTA button on mobile */
-      }
+    /* ── PAIN POINTS STRIP ── */
+    .pain-strip {
+      padding: 48px 0;
+      background: linear-gradient(90deg, rgba(108,99,255,0.06) 0%, rgba(255,107,157,0.06) 100%);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
 
-      .nav-toggle {
-        display: flex;
-        /* Show the hamburger menu button */
-      }
+    .pain-strip .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
 
-      .mobile-menu {
-        display: flex;
-        /* Allow the mobile menu to be shown */
-      }
+    .pain-item {
+      display: flex; align-items: flex-start; gap: 14px;
+    }
 
-      .hero-headline {
-        font-size: clamp(32px, 9vw, 42px);
-      }
+    .pain-icon {
+      font-size: 22px; flex-shrink: 0; margin-top: 2px;
+    }
 
-      .hero-card {
-        padding: 20px;
-      }
+    .pain-text strong {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 15px; font-weight: 700;
+      margin-bottom: 4px;
+    }
 
-      .metric-badge {
-        display: none;
-        /* Hide the floating badges on small phones — too cluttered */
-      }
+    .pain-text span {
+      font-size: 13px; color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .pain-strip .container { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+    /* ── SERVICES SECTION ── */
+    .services-section {
+      padding: 100px 0;
+      background-color: var(--color-dark);
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 800; margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .section-subtitle {
+      color: var(--color-text-secondary);
+      font-size: 18px; line-height: 1.6;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, #6C63FF 0%, #FF6B9D 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .service-card {
+      background: var(--color-dark-2);
+      border: 1px solid var(--color-border);
+      padding: 40px; border-radius: 24px;
+      transition: all var(--transition-smooth);
+      position: relative;
+      display: flex; flex-direction: column;
+      height: 100%;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(108,99,255,0.3);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .service-card.featured {
+      border-color: var(--color-accent);
+      background: linear-gradient(180deg, rgba(108,99,255,0.05) 0%, rgba(13,13,26,0) 100%);
+    }
+
+    .card-icon { font-size: 40px; margin-bottom: 24px; display: block; }
+
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: 22px; font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--color-text-primary);
+    }
+
+    .card-outcome {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(108,99,255,0.12);
+      color: var(--color-accent);
+      font-size: 12px; font-weight: 700;
+      padding: 4px 10px; border-radius: 6px;
+      margin-bottom: 16px; width: fit-content;
+    }
+
+    .card-text {
+      color: var(--color-text-secondary);
+      font-size: 15px; margin-bottom: 24px;
+      flex-grow: 1; line-height: 1.65;
+    }
+
+    .card-features {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 12px;
+      border-top: 1px solid var(--color-border);
+      padding-top: 24px; margin-top: auto;
+    }
+
+    .card-features li {
+      font-size: 14px; color: var(--color-text-primary);
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    .card-features li::before {
+      content: '✓'; color: var(--color-accent); font-weight: 900;
+    }
+
+    .card-badge {
+      position: absolute; top: 20px; right: 20px;
+      background: var(--color-accent); color: white;
+      font-size: 11px; font-weight: 700;
+      padding: 4px 12px; border-radius: 100px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 992px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .services-section { padding: 60px 0; }
+    }
+
+    /* ── PORTFOLIO SECTION ── */
+    .portfolio-section {
+      padding: 100px 0;
+      background-color: var(--color-dark-2);
+      position: relative;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px; margin-top: 50px;
+    }
+
+    .portfolio-item {
+      position: relative; border-radius: 20px;
+      overflow: hidden; aspect-ratio: 16 / 10;
+      background: var(--color-dark-3);
+      border: 1px solid var(--color-border);
+      cursor: pointer;
+    }
+
+    .portfolio-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0.6;
+      background: linear-gradient(45deg, var(--color-dark-3), var(--color-accent-glow));
+    }
+
+    .portfolio-item:hover .portfolio-img { transform: scale(1.05); opacity: 0.4; }
+
+    .portfolio-overlay {
+      position: absolute; inset: 0; padding: 40px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      background: linear-gradient(to top, rgba(13,13,26,0.9) 0%, transparent 100%);
+      transition: opacity 0.3s ease;
+    }
+
+    .project-tag {
+      font-size: 12px; font-weight: 700;
+      text-transform: uppercase; color: var(--color-accent);
+      letter-spacing: 2px; margin-bottom: 6px;
+    }
+
+    .project-title { font-family: var(--font-heading); font-size: 22px; margin-bottom: 6px; }
+
+    .project-result {
+      font-size: 13px; color: rgba(255,255,255,0.7);
+      margin-bottom: 14px; font-style: italic;
+    }
+
+    .btn-view {
+      width: fit-content; padding: 8px 0;
+      font-size: 14px; color: white; text-decoration: none;
+      border-bottom: 2px solid var(--color-accent);
+      transition: gap 0.3s ease;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    .portfolio-item:hover .btn-view { gap: 15px; }
+
+    @media (max-width: 768px) { .portfolio-grid { grid-template-columns: 1fr; } }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-section {
+      padding: 100px 0;
+      background-color: var(--color-dark);
+      position: relative;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px; margin-top: 50px;
+    }
+
+    .testimonial-card {
+      background: var(--color-dark-2);
+      border: 1px solid var(--color-border);
+      padding: 32px; border-radius: 20px;
+      display: flex; flex-direction: column;
+      justify-content: space-between;
+      transition: border-color var(--transition-smooth);
+    }
+
+    .testimonial-card:hover { border-color: var(--color-accent); }
+
+    .quote-icon {
+      color: var(--color-accent); font-size: 32px;
+      font-family: serif; line-height: 1;
+      margin-bottom: 15px; opacity: 0.5;
+    }
+
+    .testimonial-result {
+      display: inline-block;
+      background: rgba(108,99,255,0.15);
+      color: var(--color-accent);
+      font-size: 12px; font-weight: 700;
+      padding: 4px 10px; border-radius: 6px;
+      margin-bottom: 14px;
+    }
+
+    .testimonial-text {
+      font-size: 15px; color: var(--color-text-secondary);
+      font-style: italic; line-height: 1.7; margin-bottom: 24px;
+    }
+
+    .client-info {
+      display: flex; align-items: center; gap: 15px;
+      border-top: 1px solid var(--color-border);
+      padding-top: 20px;
+    }
+
+    .client-avatar {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--color-dark-3); object-fit: cover;
+      border: 2px solid var(--color-accent-glow);
+    }
+
+    .client-details h4 { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+
+    .client-details p {
+      font-size: 12px; color: var(--color-accent);
+      font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+    }
+
+    @media (max-width: 992px) { .testimonials-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .testimonials-grid { grid-template-columns: 1fr; } }
+
+    /* ── PRICING ── */
+    .pricing-section {
+      padding: 100px 0;
+      background-color: var(--color-dark-2);
+    }
+
+    .pricing-tabs {
+      display: flex; justify-content: center; gap: 10px;
+      margin-bottom: 50px; flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: var(--color-dark-3);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-secondary);
+      padding: 12px 24px; border-radius: 12px;
+      font-weight: 600; font-size: 14px;
+      cursor: pointer; transition: all var(--transition-smooth);
+    }
+
+    .tab-btn:hover { border-color: var(--color-accent); color: white; }
+
+    .tab-btn.active {
+      background: var(--color-accent); border-color: var(--color-accent);
+      color: white; box-shadow: 0 10px 20px var(--color-accent-glow);
+    }
+
+    .pricing-content {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .pricing-content.active {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .pricing-card {
+      background: var(--color-dark-3);
+      border: 1px solid var(--color-border);
+      padding: 40px; border-radius: 24px;
+      display: flex; flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(108,99,255,0.4);
+    }
+
+    .tier-name {
+      color: var(--color-accent); text-transform: uppercase;
+      font-size: 12px; font-weight: 800;
+      letter-spacing: 1.5px; margin-bottom: 6px;
+    }
+
+    .tier-promise {
+      font-size: 13px; color: var(--color-text-secondary);
+      margin-bottom: 14px; line-height: 1.4;
+    }
+
+    .tier-price {
+      font-family: var(--font-heading);
+      font-size: 36px; font-weight: 800; margin-bottom: 20px;
+    }
+
+    .tier-price span { font-size: 14px; color: var(--color-text-muted); }
+
+    .feature-list {
+      list-style: none; margin-bottom: 30px; flex-grow: 1;
+    }
+
+    .feature-list li {
+      font-size: 14px; margin-bottom: 12px;
+      display: flex; align-items: center; gap: 10px;
+      color: var(--color-text-secondary);
+    }
+
+    .feature-list li::before { content: '✓'; color: var(--color-accent); font-weight: bold; }
+
+    .btn-select {
+      display: block; text-align: center; padding: 14px;
+      background: var(--color-accent); color: white;
+      text-decoration: none; border-radius: 10px;
+      font-weight: 700; font-size: 14px;
+      transition: opacity 0.3s;
+    }
+
+    .btn-select:hover { opacity: 0.9; }
+
+    @media (max-width: 992px) {
+      .pricing-content.active { grid-template-columns: 1fr; max-width: 450px; margin: 0 auto; }
+    }
+
+    /* ── FOOTER ── */
+    .footer-section {
+      padding: 80px 0 30px;
+      background-color: var(--color-dark);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .cta-banner {
+      background: linear-gradient(135deg, var(--color-accent) 0%, #4e44e0 100%);
+      border-radius: 30px; padding: 64px 40px;
+      text-align: center; margin-bottom: 80px;
+      position: relative; overflow: hidden;
+    }
+
+    .cta-banner::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .cta-banner h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(28px, 4vw, 44px);
+      margin-bottom: 16px; color: white;
+      line-height: 1.2; position: relative;
+    }
+
+    .cta-banner p {
+      color: rgba(255,255,255,0.88);
+      font-size: 18px; margin-bottom: 32px;
+      max-width: 580px;
+      margin-left: auto; margin-right: auto;
+      line-height: 1.6; position: relative;
+    }
+
+    .btn-white {
+      background: white; color: var(--color-accent);
+      padding: 16px 32px; font-weight: 700;
+      text-decoration: none; border-radius: 12px;
+      display: inline-block;
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    .btn-white:hover { transform: scale(1.05); }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px; margin-bottom: 60px;
+    }
+
+    .footer-brand p {
+      color: var(--color-text-secondary);
+      font-size: 14px; margin-top: 15px; line-height: 1.6;
+    }
+
+    .footer-column h4 {
+      font-family: var(--font-heading);
+      font-size: 16px; margin-bottom: 25px; color: white;
+    }
+
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 12px; }
+
+    .footer-links a {
+      color: var(--color-text-secondary); text-decoration: none;
+      font-size: 14px; transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover { color: var(--color-accent); }
+
+    .footer-bottom {
+      padding-top: 30px;
+      border-top: 1px solid var(--color-border);
+      display: flex; justify-content: space-between; align-items: center;
+      color: var(--color-text-muted); font-size: 13px;
+    }
+
+    @media (max-width: 992px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
     }
   </style>
 </head>
 
 <body>
 
-  <!--
-    ============================================================
-    ★ NAVIGATION BAR
-    ============================================================
-    The <nav> element is a semantic HTML tag.
-    "Semantic" means the tag describes what the content IS,
-    not just how it looks. Search engines and screen readers
-    understand that <nav> contains navigation links.
-  -->
+  <!-- ── NAVBAR ── -->
   <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
-
-      <!-- LOGO: Clicking this takes users back to the homepage -->
       <a href="#" class="nav-logo" aria-label="SwishMart Interactive - Home">
-        <!-- The logo icon — a small square with the initials "SI" -->
         <div class="nav-logo-icon" aria-hidden="true">SI</div>
-        <!-- The logo text -->
         <span class="nav-logo-text">Swish<span>Mart</span></span>
       </a>
 
-      <!-- DESKTOP NAV LINKS
-           <ul> = unordered list (a list with no numbered order)
-           <li> = list item
-           <a href="#services"> = link that scrolls to the element with id="services"
-      -->
       <ul class="nav-links" role="list">
         <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#portfolio">Results</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
 
-      <!-- DESKTOP CTA BUTTON -->
-      <a href="https://wa.me/2348000000000?text=Hello%2C%20I%20want%20to%20discuss%20a%20project"
-        class="btn btn-primary nav-cta-desktop" target="_blank" rel="noopener noreferrer"
-        aria-label="Start your project - Opens WhatsApp">
-        <!--
-          target="_blank" = Opens in a new tab
-          rel="noopener noreferrer" = Security attribute when opening new tabs
-          The ?text= part pre-fills a WhatsApp message — smart for conversion!
-        -->
-        Get Started →
+      <a href="https://wa.me/2347040265312?text=Hello%2C%20I%20want%20to%20discuss%20a%20project"
+        class="btn btn-primary nav-cta-desktop" target="_blank" rel="noopener noreferrer">
+        Get a Free Audit →
       </a>
 
-      <!-- MOBILE HAMBURGER BUTTON
-           Three <span> elements create the three lines of the hamburger icon.
-           JavaScript toggles the "active" class to animate them into an X.
-      -->
       <button class="nav-toggle" id="navToggle" aria-label="Open mobile menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <!-- MOBILE DROPDOWN MENU
-       This is hidden by default and shown when the hamburger is clicked.
-  -->
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
     <a href="#services" class="mobile-nav-link">Services</a>
-    <a href="#portfolio" class="mobile-nav-link">Portfolio</a>
+    <a href="#portfolio" class="mobile-nav-link">Results</a>
     <a href="#pricing" class="mobile-nav-link">Pricing</a>
     <a href="#contact" class="mobile-nav-link">Contact</a>
     <div class="mobile-menu-cta">
-      <a href="https://wa.me/2348000000000?text=Hello%2C%20I%20want%20to%20discuss%20a%20project"
+      <a href="https://wa.me/2347040265312?text=Hello%2C%20I%20want%20to%20discuss%20a%20project"
         class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener noreferrer">
-        <!-- WhatsApp SVG Icon (inline SVG — no image file needed) -->
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path
-            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
         </svg>
-        Chat on WhatsApp
+        Get a Free Audit
       </a>
     </div>
   </div>
 
-  <!--
-    ============================================================
-    ★ HERO SECTION
-    ============================================================
-    <main> is a semantic tag. It tells search engines:
-    "This is the primary content of the page."
-  -->
+  <!-- ══════════════════════════════════════════════════════
+       ★ HERO SECTION
+  ══════════════════════════════════════════════════════ -->
   <main>
     <section class="hero" id="home" aria-labelledby="hero-headline">
 
-      <!-- BACKGROUND DECORATIVE BLOBS — aria-hidden tells screen readers to ignore these -->
       <div class="hero-bg" aria-hidden="true">
         <div class="hero-blob hero-blob-1"></div>
         <div class="hero-blob hero-blob-2"></div>
@@ -1146,74 +1066,41 @@
 
       <div class="container">
 
-        <!-- LEFT COLUMN: TEXT CONTENT -->
         <div class="hero-content">
 
-          <!-- TRUST BADGE — Sits above the headline to set context -->
           <div class="hero-badge">
             <div class="hero-badge-dot" aria-hidden="true"></div>
-            <!-- The dot pulses to show "we're active / open for business" -->
-            Nigeria's Premium Digital Growth Agency
+            Trusted by 100+ Nigerian Businesses
           </div>
 
-          <!-- MAIN HEADLINE
-               This is the most important text on the page.
-               It must answer: "What do you do for me?"
-               id="hero-headline" links to the aria-labelledby on the <section>
-          -->
           <h1 class="hero-headline" id="hero-headline">
-            We Build the
+            Your Website
             <span class="line-break"></span>
-            Digital Presence
-            <span class="line-break"></span>
-            That Makes You
-            <span class="highlight">Real Money</span>
+            Is Losing You
+            <span class="highlight">Customers Daily</span>
           </h1>
 
-          <!-- SUPPORTING SUBHEADLINE
-               Expands on the headline. Addresses the "how" and "who."
-               Keep it conversational — like you're talking to a friend.
-          -->
           <p class="hero-subheadline">
-            From website development to digital marketing, social media growth,
-            and YouTube monetization — we help small businesses and creators
-            in Nigeria build, grow, and profit online.
+            You've already spent money building a site that sits there doing nothing.
+            We build digital systems engineered to convert visitors into paying customers —
+            and turn your online presence into your #1 salesperson, 24/7.
           </p>
 
-          <!-- CTA BUTTONS
-               Primary CTA: WhatsApp (easiest conversion path for Nigerian audience)
-               Secondary CTA: View Portfolio (lower-commitment action for skeptics)
-          -->
           <div class="hero-ctas">
-
-            <!-- PRIMARY CTA: WhatsApp Button
-                 Using a direct WhatsApp link increases conversion rates significantly
-                 because most Nigerian users are already on WhatsApp.
-            -->
-            <a href="https://wa.me/2348000000000?text=Hello%2C%20I%20want%20to%20start%20a%20project%20with%20SwishMart"
-              class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener noreferrer"
-              aria-label="Start your project on WhatsApp">
-              <!-- Inline WhatsApp SVG icon -->
+            <a href="https://wa.me/2347040265312?text=Hello%2C%20I%20want%20a%20free%20audit%20of%20my%20website"
+              class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener noreferrer">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path
-                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
               </svg>
-              Start Your Project
+              Get Your Free Audit
             </a>
 
-            <!-- SECONDARY CTA: Lower-commitment action for visitors who need more convincing -->
-            <a href="#portfolio" class="btn btn-outline btn-lg"
-              aria-label="View SwishMart Interactive portfolio">
-              View Our Work
+            <a href="#portfolio" class="btn btn-outline btn-lg">
+              See Real Results
             </a>
           </div>
 
-          <!-- TRUST INDICATOR
-               Social proof — shows that real businesses already trust us.
-               This reduces the mental risk of reaching out.
-          -->
           <div class="hero-trust">
-            <!-- Overlapping avatar circles (initials of fictional clients) -->
             <div class="trust-avatars" aria-hidden="true">
               <div class="trust-avatar">AO</div>
               <div class="trust-avatar">CB</div>
@@ -1221,174 +1108,478 @@
               <div class="trust-avatar">MK</div>
             </div>
             <p class="trust-text">
-              Trusted by <strong>100+ businesses</strong> across Nigeria
+              <strong>100+ businesses</strong> stopped wasting money — you should too
             </p>
           </div>
 
         </div>
-        <!-- end .hero-content -->
 
-        <!-- RIGHT COLUMN: VISUAL ELEMENT -->
         <div class="hero-visual" aria-label="SwishMart Interactive services overview">
 
-          <!-- FLOATING METRIC BADGE (top-left) — adds credibility -->
           <div class="metric-badge badge-clients" aria-hidden="true">
-            <span class="metric-badge-value">100+</span>
-            <span class="metric-badge-label">Happy Clients</span>
+            <span class="metric-badge-value">₦0 → ₦2M</span>
+            <span class="metric-badge-label">Client Revenue Added</span>
           </div>
 
-          <!-- MAIN SERVICE CARD -->
           <div class="hero-card">
 
             <div class="hero-card-header">
-              <span class="hero-card-label">Our Services</span>
+              <span class="hero-card-label">What We Fix</span>
               <div class="hero-card-status">
                 <div class="status-dot" aria-hidden="true"></div>
-                Available Now
+                Taking Clients Now
               </div>
             </div>
 
-            <!-- LIST OF SERVICES
-                 Each <div class="service-item"> is one service row.
-                 Hovering over any row shows a slide-right micro-interaction.
-            -->
             <div class="service-list">
 
-              <!-- Service 1: Web Development -->
               <div class="service-item">
                 <div class="service-icon" style="background: rgba(108,99,255,0.12);" aria-hidden="true">🌐</div>
                 <div class="service-info">
-                  <div class="service-name">Web Development</div>
-                  <div class="service-desc">Fast, beautiful websites that convert</div>
+                  <div class="service-name">Dead Websites</div>
+                  <div class="service-desc">We rebuild them to actually sell</div>
                 </div>
                 <span class="service-arrow" aria-hidden="true">→</span>
               </div>
 
-              <!-- Service 2: Digital Marketing -->
               <div class="service-item">
                 <div class="service-icon" style="background: rgba(255,107,157,0.12);" aria-hidden="true">📈</div>
                 <div class="service-info">
-                  <div class="service-name">Digital Marketing</div>
-                  <div class="service-desc">Ads that bring real customers</div>
+                  <div class="service-name">Invisible Businesses</div>
+                  <div class="service-desc">We put you in front of buyers</div>
                 </div>
                 <span class="service-arrow" aria-hidden="true">→</span>
               </div>
 
-              <!-- Service 3: Social Media Management -->
               <div class="service-item">
                 <div class="service-icon" style="background: rgba(0,212,255,0.12);" aria-hidden="true">📱</div>
                 <div class="service-info">
-                  <div class="service-name">Social Media Management</div>
-                  <div class="service-desc">Grow your following & engagement</div>
+                  <div class="service-name">Silent Social Pages</div>
+                  <div class="service-desc">We grow audiences that buy</div>
                 </div>
                 <span class="service-arrow" aria-hidden="true">→</span>
               </div>
 
-              <!-- Service 4: YouTube Monetization -->
               <div class="service-item">
                 <div class="service-icon" style="background: rgba(255,0,0,0.10);" aria-hidden="true">▶️</div>
                 <div class="service-info">
-                  <div class="service-name">YouTube Monetization</div>
-                  <div class="service-desc">Turn views into naira income</div>
+                  <div class="service-name">Unmonetized Content</div>
+                  <div class="service-desc">We unlock your naira income</div>
                 </div>
                 <span class="service-arrow" aria-hidden="true">→</span>
               </div>
 
             </div>
-            <!-- end .service-list -->
 
           </div>
-          <!-- end .hero-card -->
 
-          <!-- FLOATING METRIC BADGE (bottom-right) -->
           <div class="metric-badge badge-growth" aria-hidden="true">
             <span class="metric-badge-value">3× ↑</span>
-            <span class="metric-badge-label">Avg. Revenue Growth</span>
+            <span class="metric-badge-label">Avg. Lead Increase</span>
           </div>
 
         </div>
-        <!-- end .hero-visual -->
 
       </div>
-      <!-- end .container -->
     </section>
-    <!-- end .hero -->
-     
+
+    <!-- ══════════════════════════════════════════════════════
+         PAIN POINTS STRIP — Right below hero for maximum impact
+    ══════════════════════════════════════════════════════ -->
+    <div class="pain-strip">
+      <div class="container">
+        <div class="pain-item">
+          <div class="pain-icon">💸</div>
+          <div class="pain-text">
+            <strong>You've paid for a website that doesn't bring in a single customer</strong>
+            <span>You shouldn't need to keep explaining what your business does. Your site should do it automatically — and close the sale.</span>
+          </div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-icon">🔇</div>
+          <div class="pain-text">
+            <strong>You're posting on social media but your audience isn't buying</strong>
+            <span>Likes and followers are vanity. We build content strategies engineered to turn your followers into a revenue stream.</span>
+          </div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-icon">🎥</div>
+          <div class="pain-text">
+            <strong>You're creating YouTube content for free when you could be earning</strong>
+            <span>Thousands of Nigerians are earning steady monthly income from YouTube. You need a monetization roadmap, not more guesswork.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════
+         ★ SERVICES SECTION
+    ══════════════════════════════════════════════════════ -->
+    <section class="services-section" id="services">
+      <div class="container">
+
+        <div class="section-header">
+          <h2 class="section-title">We Don't Build <span class="highlight">Pretty Websites.</span><br>We Build Revenue Machines.</h2>
+          <p class="section-subtitle">Every service we offer has one goal: put more money in your pocket. If it doesn't generate measurable results, we don't do it.</p>
+        </div>
+
+        <div class="services-grid">
+
+          <div class="service-card">
+            <div class="card-icon">🌐</div>
+            <h3 class="card-title">High-Converting Websites</h3>
+            <div class="card-outcome">↑ More Enquiries Within 30 Days</div>
+            <p class="card-text">Most Nigerian business websites look decent but do absolutely nothing. We design and build sites that guide every visitor toward one action: contacting you. Speed, clarity, and mobile-first design so you never lose a customer because your page loaded too slow.</p>
+            <ul class="card-features">
+              <li>Conversion-optimised layouts that guide visitors to act</li>
+              <li>Built for fast mobile loading — where 90% of your traffic is</li>
+              <li>E-commerce, portfolios, corporate and landing pages</li>
+            </ul>
+          </div>
+
+          <div class="service-card featured">
+            <div class="card-badge">Highest ROI</div>
+            <div class="card-icon">💰</div>
+            <h3 class="card-title">Sales Funnels & Digital Marketing</h3>
+            <div class="card-outcome">↑ 3× Average Lead Volume</div>
+            <p class="card-text">A funnel is a system that finds your ideal customer, earns their trust, and closes the sale — without you lifting a finger. We build end-to-end pipelines with paid ads, email sequences, and follow-up automation so no lead ever falls through the cracks again.</p>
+            <ul class="card-features">
+              <li>Meta & Google Ads that target buyers, not browsers</li>
+              <li>Email automation that follows up so you don't have to</li>
+              <li>Retargeting to recover lost sales</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <div class="card-icon">▶️</div>
+            <h3 class="card-title">YouTube & Social Monetization</h3>
+            <div class="card-outcome">↑ Recurring Monthly Income</div>
+            <p class="card-text">You're already creating content — you just aren't being paid for it. We audit your channel or social pages, identify exactly what's blocking monetization, and build a strategy to unlock consistent income. No shortcuts, no fake subscriber schemes — just a clear, proven roadmap.</p>
+            <ul class="card-features">
+              <li>YouTube Partner Programme fast-track strategy</li>
+              <li>Content calendar engineered for algorithm growth</li>
+              <li>Sponsorship sourcing and brand deal coaching</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- ══════════════════════════════════════════════════════
+         ★ TESTIMONIALS SECTION
+    ══════════════════════════════════════════════════════ -->
+    <section class="testimonials-section" id="testimonials">
+      <div class="container">
+
+        <div class="section-header">
+          <h2 class="section-title">Don't Take Our Word. <span class="highlight">Take Theirs.</span></h2>
+          <p class="section-subtitle">These are real entrepreneurs — just like you — who were tired of watching their money get wasted online. Here's what happened when they stopped guessing and started working with us.</p>
+        </div>
+
+        <div class="testimonials-grid">
+
+          <div class="testimonial-card">
+            <div>
+              <div class="quote-icon">"</div>
+              <div class="testimonial-result">↑ 3× Leads in 30 Days</div>
+              <p class="testimonial-text">
+                I had already paid two developers before SwishMart. Both took my money and gave me websites that sat there doing nothing. These guys built a funnel — not just a website. My phone started ringing within the first week.
+              </p>
+            </div>
+            <div class="client-info">
+              <div class="client-avatar"></div>
+              <div class="client-details">
+                <h4>Queen Iveren Tser</h4>
+                <p>Real Estate Developer, Abuja</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div>
+              <div class="quote-icon">"</div>
+              <div class="testimonial-result">Conversion Rate: 0.8% → 4.2%</div>
+              <p class="testimonial-text">
+                I was spending money on ads that went nowhere because my store was broken. SwishMart audited everything, rebuilt the site, and fixed my ad targeting. I made back their fee in the first two weeks alone.
+              </p>
+            </div>
+            <div class="client-info">
+              <div class="client-avatar"></div>
+              <div class="client-details">
+                <h4>Samuel J.</h4>
+                <p>E-commerce Founder, Lagos</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div>
+              <div class="quote-icon">"</div>
+              <div class="testimonial-result">YouTube Partner in 4 Months</div>
+              <p class="testimonial-text">
+                I had a YouTube channel for two years and made zero naira from it. SwishMart showed me exactly what I was doing wrong. Now I hit monetization threshold and I'm earning while I sleep. Should have done this long ago.
+              </p>
+            </div>
+            <div class="client-info">
+              <div class="client-avatar"></div>
+              <div class="client-details">
+                <h4>David A.</h4>
+                <p>Content Creator, Port Harcourt</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         ★ PRICING SECTION
+    ══════════════════════════════════════════════════════ -->
+    <section class="pricing-section" id="pricing">
+      <div class="container">
+
+        <div class="section-header">
+          <h2 class="section-title">Transparent Pricing. <span class="highlight">No Surprises.</span></h2>
+          <p class="section-subtitle">You know upfront exactly what you're paying and exactly what you're getting. Every plan is an investment — not a cost. Pick your service below.</p>
+        </div>
+
+        <div class="pricing-tabs">
+          <button class="tab-btn active" onclick="showPricing('web-dev')">Website Development</button>
+          <button class="tab-btn" onclick="showPricing('social')">Social Media</button>
+          <button class="tab-btn" onclick="showPricing('youtube')">YouTube Growth</button>
+          <button class="tab-btn" onclick="showPricing('content')">Content Writing</button>
+        </div>
+
+        <div id="web-dev" class="pricing-content active">
+          <div class="pricing-card">
+            <span class="tier-name">Starter</span>
+            <p class="tier-promise">Perfect if you need a clean online presence that doesn't embarrass you</p>
+            <div class="tier-price">₦150k <span>/ Landing Page</span></div>
+            <ul class="feature-list">
+              <li>Single-page conversion-focused design</li>
+              <li>Mobile-optimised & fast-loading</li>
+              <li>WhatsApp & CTA integration</li>
+            </ul>
+            <a href="https://wa.me/2347040265312?text=I'm%20interested%20in%20the%20Starter%20Website%20plan" class="btn-select" target="_blank">Start Here</a>
+          </div>
+          <div class="pricing-card">
+            <span class="tier-name">Business</span>
+            <p class="tier-promise">For serious brands that need a full online home that earns trust</p>
+            <div class="tier-price">₦350k <span>/ Full Website</span></div>
+            <ul class="feature-list">
+              <li>5-page professional website</li>
+              <li>SEO foundation so Google finds you</li>
+              <li>Contact forms, maps & analytics</li>
+            </ul>
+            <a href="https://wa.me/2347040265312?text=I'm%20interested%20in%20the%20Business%20Website%20plan" class="btn-select" target="_blank">Get Started</a>
+          </div>
+          <div class="pricing-card">
+            <span class="tier-name">Revenue Engine</span>
+            <p class="tier-promise">For businesses that need a site that actively generates sales daily</p>
+            <div class="tier-price">₦750k+ <span>/ Custom</span></div>
+            <ul class="feature-list">
+              <li>E-commerce or custom web app</li>
+              <li>Full sales funnel integration</li>
+              <li>Priority support & ongoing optimisation</li>
+            </ul>
+            <a href="https://wa.me/2347040265312?text=I'm%20interested%20in%20the%20Revenue%20Engine%20plan" class="btn-select" target="_blank">Let's Talk</a>
+          </div>
+        </div>
+
+        <div id="social" class="pricing-content">
+          <div class="pricing-card">
+            <span class="tier-name">Starter</span>
+            <p class="tier-promise">Get consistent, quality content without doing it yourself</p>
+            <div class="tier-price">₦80k <span>/ Month</span></div>
+            <ul class="feature-list">
+              <li>3 high-quality posts per week</li>
+              <li>Community engagement management</li>
+              <li>Single platform focus</li>
+            </ul>
+            <a href="https://wa.me/2347040265312?text=I'm%20interested%20in%20the%20Social%20Starter%20plan" class="btn-select" target="_blank">Get Started</a>
+          </div>
+          <div class="pricing-card">
+            <span class="tier-name">Growth</span>
+            <p class="tier-promise">Grow a following that actually buys from you</p>
+            <div class="tier-price">₦150k <span>/ Month</span></div>
+            <ul class="feature-list">
+              <li>Daily posts + Stories & Reels</li>
+              <li>Paid ad management included</li>
+              <li>Monthly performance report</li>
+            </ul>
+            <a href="https://wa.me/2347040265312?text=I'm%20interested%20in%20the%20Social%20Growth%20plan" class="btn-select" target="_blank">Get Started</a>
+          </div>
+          <div class="pricing-card">
+            <span class="tier-name">Authority</span>
+            <p class="tier-promise">Dominate your niche across every platform</p>
+            <div class="tier-price">₦300k <span>/ Month</span></div>
+            <ul class="feature-list">
+              <li>Multi-platform full management</li>
+              <li>Influencer & collaboration strategy</li>
+              <li>Detailed revenue attribution analytics</li>
+            </ul>
+            <a href="https://wa.me/23470405312?text=I'm%20interested%20in%20the%20Social%20Authority%20plan" class="btn-select" target="_blank">Get Started</a>
+          </div>
+        </div>
+
+        <div id="youtube" class="pricing-content">
+          <div class="pricing-card">
+            <span class="tier-name">Channel Audit</span>
+            <p class="tier-promise">Find out exactly why your channel isn't growing or earning</p>
+            <div class="tier-price">₦50k <span>/ One-time</span></div>
+            <ul class="feature-list">
+              <li>Full channel diagnostic report</li>
+              <li>Keyword & niche opportunity map</li>
+              <li>Actionable growth roadmap</li>
+            </ul>
+            <a href="https://wa.me/2347040265312?text=I'm%20interested%20in%20a%20YouTube%20Channel%20Audit" class="btn-select" target="_blank">Get Audited</a>
+          </div>
+          <div class="pricing-card">
+            <span class="tier-name">Growth Partner</span>
+            <p class="tier-promise">Hit monetization threshold and start earning monthly</p>
+            <div class="tier-price">₦200k <span>/ Month</span></div>
+            <ul class="feature-list">
+              <li>Video SEO & thumbnail optimisation</li>
+              <li>Content strategy that feeds the algorithm</li>
+              <li>Monetization setup & AdSense guidance</li>
+            </ul>
+            <a href="https://wa.me/2347040265312?text=I'm%20interested%20in%20YouTube%20Growth%20Partner" class="btn-select" target="_blank">Get Started</a>
+          </div>
+          <div class="pricing-card">
+            <span class="tier-name">Full Management</span>
+            <p class="tier-promise">We run your channel end-to-end while you focus on your brand</p>
+            <div class="tier-price">₦500k <span>/ Month</span></div>
+            <ul class="feature-list">
+              <li>Complete content production management</li>
+              <li>Brand deal & sponsorship sourcing</li>
+              <li>Fast-track monetization strategy</li>
+            </ul>
+            <a href="https://wa.me/2347040265312?text=I'm%20interested%20in%20YouTube%20Full%20Management" class="btn-select" target="_blank">Let's Talk</a>
+          </div>
+        </div>
+
+        <div id="content" class="pricing-content">
+          <div class="pricing-card">
+            <span class="tier-name">Per Article</span>
+            <p class="tier-promise">SEO content that brings customers from Google — for years</p>
+            <div class="tier-price">₦20k <span>/ Article</span></div>
+            <ul class="feature-list">
+              <li>1,000 words, fully SEO-optimised</li>
+              <li>Researched for your target audience</li>
+              <li>1 revision included</li>
+            </ul>
+            <a href="https://wa.me/2347040265312?text=I'm%20interested%20in%20content%20writing" class="btn-select" target="_blank">Order Now</a>
+          </div>
+          <div class="pricing-card">
+            <span class="tier-name">Content Bundle</span>
+            <p class="tier-promise">Build a library of content that keeps generating traffic</p>
+            <div class="tier-price">₦75k <span>/ 5 Articles</span></div>
+            <ul class="feature-list">
+              <li>Bulk pricing with topic research</li>
+              <li>Internal linking strategy included</li>
+              <li>Royalty-free images sourced</li>
+            </ul>
+            <a href="https://wa.me/2347040265312?text=I'm%20interested%20in%20the%20Content%20Bundle" class="btn-select" target="_blank">Get Started</a>
+          </div>
+          <div class="pricing-card">
+            <span class="tier-name">Content Engine</span>
+            <p class="tier-promise">Become the go-to authority in your industry online</p>
+            <div class="tier-price">₦200k <span>/ Month</span></div>
+            <ul class="feature-list">
+              <li>Full monthly content strategy</li>
+              <li>Ghostwriting for LinkedIn & thought leadership</li>
+              <li>Email newsletter setup & writing</li>
+            </ul>
+            <a href="https://wa.me/2347040265312?text=I'm%20interested%20in%20the%20Content%20Engine%20plan" class="btn-select" target="_blank">Let's Talk</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
-  <!--
-    ============================================================
-    JAVASCRIPT
-    ============================================================
-    All JS goes at the bottom of the <body>.
-    WHY? Because the browser reads HTML top to bottom.
-    If JS is at the top, it might run before the HTML elements
-    it references even exist in the page — causing errors.
+  <!-- ══════════════════════════════════════════════════════
+       ★ FOOTER & FINAL CTA
+  ══════════════════════════════════════════════════════ -->
+  <footer class="footer-section" id="contact">
+    <div class="container">
 
-    Putting it at the bottom ensures the whole page is loaded first.
-  -->
+      <div class="cta-banner">
+        <h2>Every Day You Wait Is Another Day Without Customers</h2>
+        <p>We only take on a limited number of new clients each month so we can deliver results — not excuses. If you're serious about growing your business online, let's talk today.</p>
+        <a href="https://wa.me/2347040265312?text=I'm%20ready%20to%20stop%20wasting%20money%20and%20grow%20my%20business%20online" class="btn-white" target="_blank" rel="noopener noreferrer">
+          Claim Your Free Audit — Before Slots Fill Up
+        </a>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <div class="nav-logo-icon">SI</div>
+            <span class="nav-logo-text">Swish<span>Mart</span></span>
+          </div>
+          <p>We build digital systems that convert visitors into customers for Nigerian businesses and creators. No vanity metrics. No wasted budgets. Just measurable revenue growth.</p>
+        </div>
+
+        <div class="footer-column">
+          <h4>Navigate</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Results</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>What We Fix</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Non-converting Websites</a></li>
+            <li><a href="#services">Leaking Sales Funnels</a></li>
+            <li><a href="#services">Unmonetized YouTube</a></li>
+            <li><a href="#services">Silent Social Pages</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Talk to Us</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@swishmart.com">hello@swishmart.com</a></li>
+            <li><a href="#">Based in Nigeria</a></li>
+            <li><a href="https://wa.me/2347040265312" target="_blank">WhatsApp — Fastest Response</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 SwishMart Interactive. All rights reserved.</p>
+        <p>Stop losing customers. Start making money online.</p>
+      </div>
+
+    </div>
+  </footer>
+
   <script>
-    /*
-      ── 1. NAVBAR SCROLL EFFECT ──
-      When the user scrolls down, we add the "scrolled" class to the navbar.
-      That class activates the frosted glass background (defined in CSS).
-    */
-
     const navbar = document.getElementById('navbar');
-    // getElementById finds the element with id="navbar" in our HTML
-
     function handleScroll() {
-      if (window.scrollY > 20) {
-        // window.scrollY = how many pixels the user has scrolled down
-        // If they've scrolled more than 20px, add the "scrolled" class
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
     }
-
-    // Listen for the "scroll" event on the window
-    // Every time the user scrolls, run the handleScroll function
     window.addEventListener('scroll', handleScroll);
-
-    // Also run it once when the page loads,
-    // in case the user refreshes while already scrolled down
     handleScroll();
-
-
-    /*
-      ── 2. MOBILE HAMBURGER MENU ──
-      When the user clicks the hamburger button:
-      1. Toggle the "active" class on the button (animates it into an X)
-      2. Toggle the "open" class on the menu (slides it into view)
-      3. Update the aria-expanded attribute for accessibility
-    */
 
     const navToggle = document.getElementById('navToggle');
     const mobileMenu = document.getElementById('mobileMenu');
-    // We grab references to both elements
-
     navToggle.addEventListener('click', function () {
-      // Toggle means: if "active" is there, remove it. If not, add it.
       const isOpen = navToggle.classList.toggle('active');
       mobileMenu.classList.toggle('open');
-
-      // Update aria-expanded so screen readers announce the state
       navToggle.setAttribute('aria-expanded', isOpen);
     });
 
-    /*
-      ── 3. CLOSE MOBILE MENU WHEN A LINK IS CLICKED ──
-      When a user taps a link in the mobile menu,
-      close the menu automatically (better UX).
-    */
-
-    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-    // querySelectorAll finds ALL elements matching the selector,
-    // and returns a NodeList (like an array) of them
-
-    mobileLinks.forEach(function (link) {
-      // .forEach loops through every link and runs the function on each
+    document.querySelectorAll('.mobile-nav-link').forEach(function (link) {
       link.addEventListener('click', function () {
         navToggle.classList.remove('active');
         mobileMenu.classList.remove('open');
@@ -1396,21 +1587,8 @@
       });
     });
 
-
-    /*
-      ── 4. CLOSE MOBILE MENU ON OUTSIDE CLICK ──
-      If the user clicks anywhere outside the menu or toggle,
-      close the mobile menu. This is expected behavior.
-    */
-
     document.addEventListener('click', function (event) {
-      // event.target = the element the user actually clicked
-
-      const clickedOutside =
-        !mobileMenu.contains(event.target) &&
-        !navToggle.contains(event.target);
-      // .contains checks if the clicked element is inside mobileMenu or navToggle
-
+      const clickedOutside = !mobileMenu.contains(event.target) && !navToggle.contains(event.target);
       if (clickedOutside && mobileMenu.classList.contains('open')) {
         navToggle.classList.remove('active');
         mobileMenu.classList.remove('open');
@@ -1418,1018 +1596,26 @@
       }
     });
 
-
-    /*
-      ── 5. SMOOTH SCROLL FOR ANCHOR LINKS ──
-      When a nav link (like #services) is clicked,
-      smoothly scroll to that section.
-      (CSS smooth-behavior handles most of this, but this JS
-       version also correctly closes mobile menus and handles offsets.)
-    */
-
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-      // a[href^="#"] means: all <a> elements whose href starts with "#"
       anchor.addEventListener('click', function (event) {
         const targetId = this.getAttribute('href');
-        // Get the href value, e.g. "#services"
-
         if (targetId === '#') return;
-        // If href is just "#" (homepage), don't do anything
-
         const targetElement = document.querySelector(targetId);
         if (!targetElement) return;
-        // If no element with that id exists, stop
-
         event.preventDefault();
-        // Prevent the browser's default jump-to behavior
-
         const offset = navbar.offsetHeight + 16;
-        // We need to account for the fixed navbar height
-        // Otherwise the section would be hidden behind the nav
-
         const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
-        // getBoundingClientRect().top = distance from viewport top
-        // window.scrollY = how far we've already scrolled
-        // Subtracting offset adds breathing room below the nav
-
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-          // This is what makes it scroll smoothly instead of jumping
-        });
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
       });
     });
 
+    function showPricing(category) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.pricing-content').forEach(content => content.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      document.getElementById(category).classList.add('active');
+    }
   </script>
-<style>
-  /* --- Services Section Container --- */
-  .services-section {
-    padding: 100px 0;
-    background-color: var(--color-dark);
-    position: relative;
-  }
 
-  .section-header {
-    text-align: center;
-    margin-bottom: 60px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .section-title {
-    font-family: var(--font-heading);
-    font-size: clamp(30px, 4vw, 48px);
-    font-weight: 800;
-    margin-bottom: 20px;
-    line-height: 1.2;
-  }
-
-  .section-subtitle {
-    color: var(--color-text-secondary);
-    font-size: 18px;
-    opacity: 0.8;
-  }
-
-  /* --- Grid Layout --- */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-  }
-
-  /* --- Service Card Glassmorphism --- */
-  .service-card {
-    background: var(--color-dark-2);
-    border: 1px solid var(--color-border);
-    padding: 40px;
-    border-radius: 24px;
-    transition: all var(--transition-smooth);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-
-  .service-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(108, 99, 255, 0.3);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  }
-
-  /* Featured Styling */
-  .service-card.featured {
-    border-color: var(--color-accent);
-    background: linear-gradient(180deg, rgba(108, 99, 255, 0.05) 0%, rgba(13, 13, 26, 0) 100%);
-  }
-
-  .card-icon {
-    font-size: 40px;
-    margin-bottom: 24px;
-    display: block;
-  }
-
-  .card-title {
-    font-family: var(--font-heading);
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 16px;
-    color: var(--color-text-primary);
-  }
-
-  .card-text {
-    color: var(--color-text-secondary);
-    font-size: 15px;
-    margin-bottom: 24px;
-    flex-grow: 1;
-  }
-
-  /* --- Feature List --- */
-  .card-features {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    border-top: 1px solid var(--color-border);
-    padding-top: 24px;
-    margin-top: auto;
-  }
-
-  .card-features li {
-    font-size: 14px;
-    color: var(--color-text-primary);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .card-features li::before {
-    content: '✓';
-    color: var(--color-accent);
-    font-weight: 900;
-  }
-
-  .card-badge {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: var(--color-accent);
-    color: white;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 100px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  /* --- Responsive Breakpoints --- */
-  @media (max-width: 992px) {
-    .services-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 640px) {
-    .services-grid {
-      grid-template-columns: 1fr;
-    }
-    .services-section {
-      padding: 60px 0;
-    }
-  }
-</style>
-
-<section class="services-section" id="services">
-  <div class="container">
-    
-    <div class="section-header">
-      <h2 class="section-title">Tailored Solutions for <span class="highlight">Digital Dominance</span></h2>
-      <p class="section-subtitle">Strategically designed tools to help you scale your brand and maximize revenue.</p>
-    </div>
-
-    <div class="services-grid">
-      
-      <div class="service-card">
-        <div class="card-icon">🌐</div>
-        <h3 class="card-title">Full-Stack Development</h3>
-        <p class="card-text">Custom, high-performance websites built for speed and conversion. Optimized for mobile-first users.</p>
-        <ul class="card-features">
-          <li>Responsive Design</li>
-          <li>E-commerce Systems</li>
-          <li>Performance SEO</li>
-        </ul>
-      </div>
-
-      <div class="service-card featured">
-        <div class="card-badge">Most Popular</div>
-        <div class="card-icon">💰</div>
-        <h3 class="card-title">Conversion Funnels</h3>
-        <p class="card-text">End-to-end sales pipelines designed to capture leads and close high-ticket deals automatically.</p>
-        <ul class="card-features">
-          <li>Lead Gen Strategy</li>
-          <li>Email Automation</li>
-          <li>Sales Psychology</li>
-        </ul>
-      </div>
-
-      <div class="service-card">
-        <div class="card-icon">▶️</div>
-        <h3 class="card-title">Channel Monetization</h3>
-        <p class="card-text">Accelerate your growth on digital platforms with data-driven content and monetization blueprints.</p>
-        <ul class="card-features">
-          <li>Content Planning</li>
-          <li>Algorithm Optimization</li>
-          <li>Revenue Coaching</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-<style>
-  /* ============================================================
-     ★ PORTFOLIO SECTION STYLES
-     ============================================================ */
-  .portfolio-section {
-    padding: 100px 0;
-    background-color: var(--color-dark-2); /* Slightly lighter background to create depth */
-    position: relative;
-  }
-
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    margin-top: 50px;
-  }
-
-  /* Portfolio Item Container */
-  .portfolio-item {
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    aspect-ratio: 16 / 10;
-    background: var(--color-dark-3);
-    border: 1px solid var(--color-border);
-    cursor: pointer;
-  }
-
-  /* Image Overlay Placeholder (Since I don't have your images) */
-  .portfolio-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0.6;
-    background: linear-gradient(45deg, var(--color-dark-3), var(--color-accent-glow));
-  }
-
-  .portfolio-item:hover .portfolio-img {
-    transform: scale(1.05);
-    opacity: 0.4;
-  }
-
-  /* Hover Info Content */
-  .portfolio-overlay {
-    position: absolute;
-    inset: 0;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    background: linear-gradient(to top, rgba(13, 13, 26, 0.9) 0%, transparent 100%);
-    transition: opacity 0.3s ease;
-  }
-
-  .project-tag {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--color-accent);
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-  }
-
-  .project-title {
-    font-family: var(--font-heading);
-    font-size: 28px;
-    margin-bottom: 15px;
-  }
-
-  .btn-view {
-    width: fit-content;
-    padding: 8px 0;
-    font-size: 14px;
-    color: white;
-    text-decoration: none;
-    border-bottom: 2px solid var(--color-accent);
-    transition: gap 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .portfolio-item:hover .btn-view {
-    gap: 15px;
-  }
-
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
-    .portfolio-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
-
-<section class="portfolio-section" id="portfolio">
-  <div class="container">
-    
-    <div class="section-header">
-      <h2 class="section-title">Selected <span class="highlight">Projects</span></h2>
-      <p class="section-subtitle">A look at some of the high-performance digital assets we've built for industry leaders.</p>
-    </div>
-
-    <div class="portfolio-grid">
-      
-      <div class="portfolio-item">
-        <div class="portfolio-img"></div> <div class="portfolio-overlay">
-          <span class="project-tag">Real Estate Branding</span>
-          <h3 class="project-title">Property Launch Campaign</h3>
-          <a href="#" class="btn-view">View Case Study <span>→</span></a>
-        </div>
-      </div>
-
-      <div class="portfolio-item">
-        <div class="portfolio-img"></div>
-        <div class="portfolio-overlay">
-          <span class="project-tag">Marketing Funnel</span>
-          <h3 class="project-title">Creator Revenue System</h3>
-          <a href="#" class="btn-view">View Case Study <span>→</span></a>
-        </div>
-      </div>
-
-      <div class="portfolio-item">
-        <div class="portfolio-img"></div>
-        <div class="portfolio-overlay">
-          <span class="project-tag">Web Development</span>
-          <h3 class="project-title">E-commerce Marketplace</h3>
-          <a href="#" class="btn-view">View Case Study <span>→</span></a>
-        </div>
-      </div>
-
-      <div class="portfolio-item">
-        <div class="portfolio-img"></div>
-        <div class="portfolio-overlay">
-          <span class="project-tag">Branding Strategy</span>
-          <h3 class="project-title">Corporate Identity Rebrand</h3>
-          <a href="#" class="btn-view">View Case Study <span>→</span></a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-<style>
-  /* ============================================================
-     ★ TESTIMONIALS SECTION STYLES
-     ============================================================ */
-  .testimonials-section {
-    padding: 100px 0;
-    background-color: var(--color-dark);
-    position: relative;
-  }
-
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 50px;
-  }
-
-  .testimonial-card {
-    background: var(--color-dark-2);
-    border: 1px solid var(--color-border);
-    padding: 32px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: border-color var(--transition-smooth);
-  }
-
-  .testimonial-card:hover {
-    border-color: var(--color-accent);
-  }
-
-  .quote-icon {
-    color: var(--color-accent);
-    font-size: 32px;
-    font-family: serif;
-    line-height: 1;
-    margin-bottom: 15px;
-    opacity: 0.5;
-  }
-
-  .testimonial-text {
-    font-size: 16px;
-    color: var(--color-text-secondary);
-    font-style: italic;
-    line-height: 1.7;
-    margin-bottom: 24px;
-  }
-
-  .client-info {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    border-top: 1px solid var(--color-border);
-    padding-top: 20px;
-  }
-
-  .client-avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: var(--color-dark-3);
-    object-fit: cover;
-    border: 2px solid var(--color-accent-glow);
-  }
-
-  .client-details h4 {
-    font-size: 15px;
-    font-weight: 700;
-    margin-bottom: 2px;
-  }
-
-  .client-details p {
-    font-size: 12px;
-    color: var(--color-accent);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  /* Responsive Adjustments */
-  @media (max-width: 992px) {
-    .testimonials-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 640px) {
-    .testimonials-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
-
-<section class="testimonials-section" id="testimonials">
-  <div class="container">
-    
-    <div class="section-header">
-      <h2 class="section-title">What Our <span class="highlight">Partners</span> Say</h2>
-      <p class="section-subtitle">Success is better shared. Here is how we've helped entrepreneurs transform their digital presence.</p>
-    </div>
-
-    <div class="testimonials-grid">
-      
-      <div class="testimonial-card">
-        <div>
-          <div class="quote-icon">“</div>
-          <p class="testimonial-text">
-            Working with SwishMart was a game-changer for our brand. The conversion funnel they built tripled our leads in the first month.
-          </p>
-        </div>
-        <div class="client-info">
-          <div class="client-avatar"></div> <div class="client-details">
-            <h4>Queen Iveren Tser</h4>
-            <p>Real Estate Developer</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div>
-          <div class="quote-icon">“</div>
-          <p class="testimonial-text">
-            The technical depth in their web development is unmatched. Fast, responsive, and aesthetically premium. Exactly what we needed.
-          </p>
-        </div>
-        <div class="client-info">
-          <div class="client-avatar"></div>
-          <div class="client-details">
-            <h4>Samuel J.</h4>
-            <p>E-commerce Founder</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div>
-          <div class="quote-icon">“</div>
-          <p class="testimonial-text">
-            They didn't just build a site; they built a strategy. My YouTube monetization pathway is finally clear and consistent.
-          </p>
-        </div>
-        <div class="client-info">
-          <div class="client-avatar"></div>
-          <div class="client-details">
-            <h4>David A.</h4>
-            <p>Content Creator</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-<style>
-  /* ============================================================
-     ★ INTERACTIVE TABBED PRICING STYLES
-     ============================================================ */
-  .pricing-section {
-    padding: 100px 0;
-    background-color: var(--color-dark-2);
-  }
-
-  /* --- Tab Navigation --- */
-  .pricing-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 50px;
-    flex-wrap: wrap;
-  }
-
-  .tab-btn {
-    background: var(--color-dark-3);
-    border: 1px solid var(--color-border);
-    color: var(--color-text-secondary);
-    padding: 12px 24px;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all var(--transition-smooth);
-  }
-
-  .tab-btn:hover {
-    border-color: var(--color-accent);
-    color: white;
-  }
-
-  .tab-btn.active {
-    background: var(--color-accent);
-    border-color: var(--color-accent);
-    color: white;
-    box-shadow: 0 10px 20px var(--color-accent-glow);
-  }
-
-  /* --- Content Handling --- */
-  .pricing-content {
-    display: none; /* Hidden by default */
-    animation: fadeIn 0.5s ease;
-  }
-
-  .pricing-content.active {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* --- Card Styling --- */
-  .pricing-card {
-    background: var(--color-dark-3);
-    border: 1px solid var(--color-border);
-    padding: 40px;
-    border-radius: 24px;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease;
-  }
-
-  .pricing-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(108, 99, 255, 0.4);
-  }
-
-  .tier-name {
-    color: var(--color-accent);
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    margin-bottom: 10px;
-  }
-
-  .tier-price {
-    font-family: var(--font-heading);
-    font-size: 36px;
-    font-weight: 800;
-    margin-bottom: 20px;
-  }
-
-  .tier-price span {
-    font-size: 14px;
-    color: var(--color-text-muted);
-  }
-
-  .feature-list {
-    list-style: none;
-    margin-bottom: 30px;
-    flex-grow: 1;
-  }
-
-  .feature-list li {
-    font-size: 14px;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--color-text-secondary);
-  }
-
-  .feature-list li::before {
-    content: '✓';
-    color: var(--color-accent);
-    font-weight: bold;
-  }
-
-  .btn-select {
-    display: block;
-    text-align: center;
-    padding: 14px;
-    background: var(--color-accent);
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 14px;
-    transition: opacity 0.3s;
-  }
-
-  .btn-select:hover {
-    opacity: 0.9;
-  }
-
-  /* --- Responsive --- */
-  @media (max-width: 992px) {
-    .pricing-content.active { grid-template-columns: 1fr; max-width: 450px; margin: 0 auto; }
-  }
-</style>
-
-<section class="pricing-section" id="pricing">
-  <div class="container">
-    
-    <div class="section-header">
-      <h2 class="section-title">Flexible <span class="highlight">Pricing</span> Plans</h2>
-      <p class="section-subtitle">Select a service to view our professional tiers.</p>
-    </div>
-
-    <div class="pricing-tabs">
-      <button class="tab-btn active" onclick="showPricing('web-dev')">Web Development</button>
-      <button class="tab-btn" onclick="showPricing('social')">Social Media</button>
-      <button class="tab-btn" onclick="showPricing('youtube')">YouTube Monetization</button>
-      <button class="tab-btn" onclick="showPricing('content')">Content Writing</button>
-    </div>
-
-    <div id="web-dev" class="pricing-content active">
-      <div class="pricing-card">
-        <span class="tier-name">Basic</span>
-        <div class="tier-price">#150k <span>/ Landing Page</span></div>
-        <ul class="feature-list">
-          <li>Single Page Design</li>
-          <li>Mobile Responsive</li>
-          <li>WhatsApp Integration</li>
-        </ul>
-        <a href="#contact" class="btn-select">Get Started</a>
-      </div>
-      <div class="pricing-card">
-        <span class="tier-name">Business</span>
-        <div class="tier-price">#350k <span>/ Corporate</span></div>
-        <ul class="feature-list">
-          <li>5-Page Website</li>
-          <li>SEO Setup</li>
-          <li>Contact Forms & Maps</li>
-        </ul>
-        <a href="#contact" class="btn-select">Get Started</a>
-      </div>
-      <div class="pricing-card">
-        <span class="tier-name">Premium</span>
-        <div class="tier-price">#750k+ <span>/ Custom</span></div>
-        <ul class="feature-list">
-          <li>E-commerce / CMS</li>
-          <li>Custom Functionality</li>
-          <li>Priority Support</li>
-        </ul>
-        <a href="#contact" class="btn-select">Get Started</a>
-      </div>
-    </div>
-
-    <div id="social" class="pricing-content">
-      <div class="pricing-card">
-        <span class="tier-name">Starter</span>
-        <div class="tier-price">#80k <span>/ Month</span></div>
-        <ul class="feature-list">
-          <li>3 Posts Weekly</li>
-          <li>Basic Engagement</li>
-          <li>Single Platform</li>
-        </ul>
-        <a href="#contact" class="btn-select">Get Started</a>
-      </div>
-      <div class="pricing-card">
-        <span class="tier-name">Growth</span>
-        <div class="tier-price">#150k <span>/ Month</span></div>
-        <ul class="feature-list">
-          <li>Daily Posting</li>
-          <li>Stories & Reels</li>
-          <li>Ad Management</li>
-        </ul>
-        <a href="#contact" class="btn-select">Get Started</a>
-      </div>
-      <div class="pricing-card">
-        <span class="tier-name">Elite</span>
-        <div class="tier-price">#300k <span>/ Month</span></div>
-        <ul class="feature-list">
-          <li>Multi-platform Mgmt</li>
-          <li>Influence Strategy</li>
-          <li>Detailed Analytics</li>
-        </ul>
-        <a href="#contact" class="btn-select">Get Started</a>
-      </div>
-    </div>
-
-    <div id="youtube" class="pricing-content">
-      <div class="pricing-card">
-        <span class="tier-name">Audit</span>
-        <div class="tier-price">#50k <span>/ Once</span></div>
-        <ul class="feature-list">
-          <li>Channel Review</li>
-          <li>Keyword Strategy</li>
-          <li>SEO Best Practices</li>
-        </ul>
-        <a href="#contact" class="btn-select">Get Started</a>
-      </div>
-      <div class="pricing-card">
-        <span class="tier-name">Growth</span>
-        <div class="tier-price">#200k <span>/ Month</span></div>
-        <ul class="feature-list">
-          <li>Video Optimization</li>
-          <li>Thumbnail Strategy</li>
-          <li>Monetization Setup</li>
-        </ul>
-        <a href="#contact" class="btn-select">Get Started</a>
-      </div>
-      <div class="pricing-card">
-        <span class="tier-name">Full Mgmt</span>
-        <div class="tier-price">#500k <span>/ Month</span></div>
-        <ul class="feature-list">
-          <li>Full Production Mgmt</li>
-          <li>Sponsorship Sourcing</li>
-          <li>Fast-track Monetization</li>
-        </ul>
-        <a href="#contact" class="btn-select">Get Started</a>
-      </div>
-    </div>
-
-    <div id="content" class="pricing-content">
-      <div class="pricing-card">
-        <span class="tier-name">Basic</span>
-        <div class="tier-price">#20k <span>/ Article</span></div>
-        <ul class="feature-list">
-          <li>1,000 Words</li>
-          <li>SEO Optimized</li>
-          <li>1 Revision</li>
-        </ul>
-        <a href="#contact" class="btn-select">Get Started</a>
-      </div>
-      <div class="pricing-card">
-        <span class="tier-name">Pro</span>
-        <div class="tier-price">#75k <span>/ 5 Articles</span></div>
-        <ul class="feature-list">
-          <li>Bulk Pricing</li>
-          <li>Topic Research</li>
-          <li>Royalty Free Images</li>
-        </ul>
-        <a href="#contact" class="btn-select">Get Started</a>
-      </div>
-      <div class="pricing-card">
-        <span class="tier-name">Authority</span>
-        <div class="tier-price">#200k <span>/ Month</span></div>
-        <ul class="feature-list">
-          <li>Full Content Strategy</li>
-          <li>Ghostwriting</li>
-          <li>Newsletter Setup</li>
-        </ul>
-        <a href="#contact" class="btn-select">Get Started</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<script>
-  function showPricing(category) {
-    // Remove active class from all buttons
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.classList.remove('active');
-    });
-    
-    // Hide all pricing contents
-    document.querySelectorAll('.pricing-content').forEach(content => {
-      content.classList.remove('active');
-    });
-
-    // Add active class to clicked button
-    event.currentTarget.classList.add('active');
-    
-    // Show selected category
-    document.getElementById(category).classList.add('active');
-  }
-</script>
-<style>
-  /* ============================================================
-     ★ CONTACT & FOOTER STYLES
-     ============================================================ */
-  .footer-section {
-    padding: 80px 0 30px;
-    background-color: var(--color-dark);
-    border-top: 1px solid var(--color-border);
-  }
-
-  /* Final CTA Banner */
-  .cta-banner {
-    background: linear-gradient(135deg, var(--color-accent) 0%, #4e44e0 100%);
-    border-radius: 30px;
-    padding: 60px 40px;
-    text-align: center;
-    margin-bottom: 80px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cta-banner h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(28px, 4vw, 42px);
-    margin-bottom: 20px;
-    color: white;
-  }
-
-  .cta-banner p {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 18px;
-    margin-bottom: 30px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .btn-white {
-    background: white;
-    color: var(--color-accent);
-    padding: 16px 32px;
-    font-weight: 700;
-    text-decoration: none;
-    border-radius: 12px;
-    display: inline-block;
-    transition: transform 0.3s ease;
-  }
-
-  .btn-white:hover {
-    transform: scale(1.05);
-  }
-
-  /* Footer Links Area */
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 40px;
-    margin-bottom: 60px;
-  }
-
-  .footer-brand p {
-    color: var(--color-text-secondary);
-    font-size: 14px;
-    margin-top: 15px;
-    line-height: 1.6;
-  }
-
-  .footer-column h4 {
-    font-family: var(--font-heading);
-    font-size: 16px;
-    margin-bottom: 25px;
-    color: white;
-  }
-
-  .footer-links {
-    list-style: none;
-  }
-
-  .footer-links li {
-    margin-bottom: 12px;
-  }
-
-  .footer-links a {
-    color: var(--color-text-secondary);
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.3s ease;
-  }
-
-  .footer-links a:hover {
-    color: var(--color-accent);
-  }
-
-  .footer-bottom {
-    padding-top: 30px;
-    border-top: 1px solid var(--color-border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--color-text-muted);
-    font-size: 13px;
-  }
-
-  /* Responsive Adjustments */
-  @media (max-width: 992px) {
-    .footer-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .footer-grid {
-      grid-template-columns: 1fr;
-    }
-    .footer-bottom {
-      flex-direction: column;
-      gap: 15px;
-      text-align: center;
-    }
-  }
-</style>
-
-<footer class="footer-section" id="contact">
-  <div class="container">
-    
-    <div class="cta-banner">
-      <h2>Ready to scale your business?</h2>
-      <p>Let's build a digital system that works as hard as you do. Limited project slots available for this month.</p>
-      <a href="https://wa.me/YOUR_NUMBER" class="btn-white">Secure Your Consultation</a>
-    </div>
-
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="nav-logo">
-          <div class="nav-logo-icon">SI</div>
-          <span class="nav-logo-text">Swish<span>Mart</span></span>
-        </div>
-        <p>Premium digital solutions for high-growth brands and creators. Specialized in web development, funnels, and monetization strategy.</p>
-      </div>
-
-      <div class="footer-column">
-        <h4>Navigation</h4>
-        <ul class="footer-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#testimonials">Reviews</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-column">
-        <h4>Services</h4>
-        <ul class="footer-links">
-          <li><a href="#">Web Development</a></li>
-          <li><a href="#">Sales Funnels</a></li>
-          <li><a href="#">YouTube Growth</a></li>
-          <li><a href="#">Brand Strategy</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-column">
-        <h4>Contact</h4>
-        <ul class="footer-links">
-          <li><a href="mailto:hello@swishmart.com">hello@swishmart.com</a></li>
-          <li><a href="#">Based in Nigeria</a></li>
-          <li><a href="https://wa.me/YOUR_NUMBER">WhatsApp Support</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; 2026 SwishMart Interactive. All rights reserved.</p>
-      <p>Building the Digital Future.</p>
-    </div>
-
-  </div>
-</footer>
 </body>
-
 </html>
